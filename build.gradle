@@ -1,7 +1,8 @@
 buildscript {
 	repositories {
 		gradlePluginPortal()
-		maven { url "https://repo.spring.io/plugins-release" }
+		maven { url "https://maven.aliyun.com/repository/gradle-plugin" }
+		maven { url "https://maven.aliyun.com/repository/spring-plugin" }
 	}
 	dependencies {
 		classpath("io.spring.gradle:propdeps-plugin:0.0.9.RELEASE")
@@ -12,6 +13,8 @@ buildscript {
 // 3rd party plugin repositories can be configured in settings.gradle
 plugins {
 	id "io.spring.dependency-management" version "1.0.7.RELEASE" apply false
+	id "cn.bestwu.propdeps-idea" version "0.0.9"
+	id("cn.bestwu.propdeps-maven") version "0.0.9"
 	id "org.jetbrains.kotlin.jvm" version "1.2.71" apply false
 	id "org.jetbrains.dokka" version "0.9.18"
 	id "org.asciidoctor.convert" version "1.5.8"
@@ -150,6 +153,11 @@ configure(allprojects) { project ->
 	repositories {
 		mavenCentral()
 		maven { url "https://repo.spring.io/libs-spring-framework-build" }
+		maven { url "https://repo.spring.io/plugins-release" }
+		maven{ url 'https://maven.aliyun.com/repository/central'}
+		maven{ url 'https://maven.aliyun.com/repository/public'}
+		maven{ url 'https://maven.aliyun.com/repository/googlr'}
+		maven{ url 'https://maven.aliyun.com/repository/spring'}
 	}
 
 	dependencies {
